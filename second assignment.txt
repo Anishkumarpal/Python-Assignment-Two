@@ -1,0 +1,429 @@
+1. Given a two integer numbers return their product and if the product is greater than 1000, 
+then return their sum.
+
+
+
+
+def multiplication_or_sum(num1, num2):
+    product = num1 * num2
+    if product <= 1000:
+        return product
+    else:
+        return num1 + num2
+
+number1 = 20
+number2 = 30
+
+print("\n")
+result = multiplication_or_sum(number1, number2)
+print("The result is", result)
+
+2.Reverse a given number and return true if it is the same as the original number.
+
+num=int(input("Enter original number"))
+n=num
+rev=0;
+while(num>0):
+    rem=num%10
+    rev=10*rev+rem
+    num=num//10
+if(n==rev):
+    print("The original and reverse number is the same")
+else:
+    print("The original and reverse number is not the same")
+
+3.Count all lower case, upper case, digits, and special symbols from a given string.
+def findDigitsCharsSymbols(inputString):
+  charCount = 0
+  digitCount = 0
+  symbolCount = 0
+  for char in inputString:
+    if char.islower() or char.isupper():
+      charCount+=1
+    elif char.isnumeric():
+      digitCount+=1
+    else:
+      symbolCount+=1
+      
+  print("Chars = ", charCount, "Digits = ", digitCount, "Symbol = ", symbolCount)
+      
+inputString = "P@#yn26at^&i5ve"
+print("total counts of chars, digits,and symbols \n")
+
+
+7.Write a Python program to print alphabet pattern 'A'.
+
+result_str="";    
+for row in range(0,7):    
+    for column in range(0,7):     
+        if (((column == 1 or column == 5) and row != 0) or ((row == 0 or row == 3) and (column > 1 and column < 5))):    
+            result_str=result_str+"*"    
+        else:      
+            result_str=result_str+" "    
+    result_str=result_str+"\n"    
+print(result_str);
+
+8.Write a Python program to display a number with a comma separator.
+
+'1,2,,3,'.split(',')
+
+
+9.Write a Python program to display astrological sign for given date of birth. 
+
+day = int(input("Input birthday: "))
+month = input("Input month of birth (e.g. march, july etc): ")
+if month == 'december':
+    astro_sign = 'Sagittarius' if (day < 22) else 'capricorn'
+elif month == 'january':
+    astro_sign = 'Capricorn' if (day < 20) else 'aquarius'
+elif month == 'february':
+    astro_sign = 'Aquarius' if (day < 19) else 'pisces'
+elif month == 'march':
+    astro_sign = 'Pisces' if (day < 21) else 'aries'
+elif month == 'april':
+    astro_sign = 'Aries' if (day < 20) else 'taurus'
+elif month == 'may':
+    astro_sign = 'Taurus' if (day < 21) else 'gemini'
+elif month == 'june':
+    astro_sign = 'Gemini' if (day < 21) else 'cancer'
+elif month == 'july':
+    astro_sign = 'Cancer' if (day < 23) else 'leo'
+elif month == 'august':
+    astro_sign = 'Leo' if (day < 23) else 'virgo'
+elif month == 'september':
+    astro_sign = 'Virgo' if (day < 23) else 'libra'
+elif month == 'october':
+    astro_sign = 'Libra' if (day < 23) else 'scorpio'
+elif month == 'november':
+    astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
+print("Your Astrological sign is :",astro_sign)
+
+10.Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters.
+
+def string_test(s):
+    d={"UPPER_CASE":0, "LOWER_CASE":0}
+    for c in s:
+        if c.isupper():
+           d["UPPER_CASE"]+=1
+        elif c.islower():
+           d["LOWER_CASE"]+=1
+        else:
+           pass
+    print ("Original String : ", s)
+    print ("No. of Upper case characters : ", d["UPPER_CASE"])
+    print ("No. of Lower case Characters : ", d["LOWER_CASE"])
+
+string_test('The quick Brown Fox')
+
+11.  Print with your own font using Python !!
+ 
+name = "GEEK"
+  
+# To take input from User 
+# name = input("Enter your name: \n\n") 
+  
+lngth = len(name) 
+l = "" 
+  
+for x in range(0, lngth): 
+    c = name[x] 
+    c = c.upper() 
+      
+    if (c == "A"): 
+        print("..######..\n..#....#..\n..######..", end = " ") 
+        print("\n..#....#..\n..#....#..\n\n") 
+          
+    elif (c == "G"): 
+        print("..######..\n..#....#..\n..#####...", end = " ") 
+        print("\n..#....#..\n..######..\n\n") 
+
+12.Python program to convert time from 12 hours to 24-hour format.
+
+def convert24(str1): 
+    if str1[-2:] == "AM" and str1[:2] == "12": 
+        return "00" + str1[2:-2] 
+       
+    elif str1[-2:] == "AM": 
+        return str1[:-2] 
+         
+    elif str1[-2:] == "PM" and str1[:2] == "12": 
+        return str1[:-2] 
+          
+    else: 
+          
+        return str(int(str1[:2]) + 12) + str1[2:8] 
+  
+    print(convert24("08:05:45 PM")) 
+
+
+13.Generating random strings until a given string is generated.
+
+import string 
+import random 
+import time 
+  
+
+    possibleCharacters = string.ascii_lowercase + string.digits+string.ascii_uppercase + ' ., !?;:'
+  
+  
+t = "geek"
+  
+
+  
+attemptThis = ''.join(random.choice(possibleCharacters) 
+                                for i in range(len(t))) 
+attemptNext = '' 
+  
+completed = False
+iteration = 0
+  
+
+while completed == False: 
+    print(attemptThis) 
+      
+    attemptNext = '' 
+    completed = True
+      
+ 
+    for i in range(len(t)): 
+        if attemptThis[i] != t[i]: 
+            completed = False
+            attemptNext += random.choice(possibleCharacters) 
+        else: 
+            attemptNext += t[i] 
+    
+    iteration += 1
+    attemptThis = attemptNext 
+    time.sleep(0.1) 
+  
+ 
+print("Target matched after " +
+      str(iteration) + " iterations") 
+
+14.Python Program to Create a Class in which One Method Accepts a String from the User and Another print it.
+
+class print1():
+    def __init__(self):
+        self.string=""
+ 
+    def get(self):
+        self.string=input("Enter string: ")
+ 
+    def put(self):
+        print("String is:")
+        print(self.string)
+ 
+obj=print1()
+obj.get()
+obj.put()
+
+
+15.Define a class which has at least two methods.
+
+class InputOutString(object):
+    def __init__(self):
+        self.s = ""
+    def getString(self):
+        self.s = raw_input()
+    def printString(self):
+        print self.s.upper()
+strObj = InputOutString()
+strObj.getString()
+
+strObj.printString()
+
+
+16.Write a program that takes 2 digits, X,Y as input and generates a 2-dimensional array. The element value in the i-th row and j-th column of the array should be i*j.
+
+            Note: i=0,1.., X-1; j=0,1,¡¬Y-1.
+
+row_num = int(input("Input number of rows: "))
+col_num = int(input("Input number of columns: "))
+multi_list = [[0 for col in range(col_num)] for row in range(row_num)]
+
+for row in range(row_num):
+    for col in range(col_num):
+        multi_list[row][col]= row*col
+
+print(multi_list)
+
+17.Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a.
+
+Suppose the following input is supplied to the program.
+
+
+value = input("Enter value: ")
+
+n1 = value * 1
+n2 = value * 2
+n3 = value * 3
+n4 = value * 4
+
+total = int(n1) + int(n2) + int(n3) + int(n4)
+print(total)
+
+18.Write a program that computes the net amount of a bank account based a transaction log from console input. The transaction log format is shown as following:
+
+total = 0
+while True:
+    d_w_trans = input()
+    if d_w_trans == "":
+        break
+    else:
+        d_w_trans = d_w_trans.split(" ")
+        if d_w_trans[0] == "D":
+            total = total + int(d_w_trans[1])
+        elif d_w_trans[0] == "W":
+            total = total - int(d_w_trans[1])
+
+print(total)
+
+
+19.A robot moves in a plane starting from the original point (0,0). The robot can move toward UP,
+ DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following.
+
+
+import math
+
+x, y = 0, 0
+
+while True:
+    step = input("Type in UP/DOWN/LEFT/RIGHT #step number: ")
+
+    if step == "":
+        break
+
+    else:
+        step = step.split(" ")
+
+        if step[0] == "UP":
+            y = y + int(step[1])
+        elif step[0] == "DOWN":
+            y = y - int(step[1])
+        elif step[0] == "LEFT":
+            x = x - int(step[1])
+        elif step[0] == "RIGHT":
+            x = x + int(step[1])
+
+c = math.sqrt(x**2 + y**2)
+
+print("Distance:", c)
+
+
+20. Implemented a Tic Tac Toe Game and write the complete Explanation.
+
+
+import numpy as np 
+import random 
+from time import sleep 
+
+# Creates an empty board 
+def create_board(): 
+    return(np.array([[0, 0, 0], 
+                    [0, 0, 0], 
+                    [0, 0, 0]])) 
+
+# Check for empty places on board 
+def possibilities(board): 
+    l = [] 
+ 
+        for i in range(len(board)): 
+        for j in range(len(board)): 
+
+        if board[i][j] == 0: 
+        l.append((i, j)) 
+    return(l) 
+
+# Select a random place for the player 
+def random_place(board, player): 
+    selection = possibilities(board) 
+    current_loc = random.choice(selection) 
+    board[current_loc] = player 
+    return(board) 
+
+# Checks whether the player has three 
+# of their marks in a horizontal row 
+def row_win(board, player): 
+    for x in range(len(board)): 
+            win = True
+
+            for y in range(len(board)): 
+                if board[x, y] != player: 
+                    win = False
+            continue
+    if win == True: 
+            return(win) 
+    return(win) 
+
+# Checks whether the player has three 
+# of their marks in a vertical row 
+def col_win(board, player): 
+    for x in range(len(board)): 
+        win = True
+
+        for y in range(len(board)): 
+        if board[y][x] != player: 
+                    win = False
+                continue
+
+        if win == True: 
+            return(win) 
+    return(win) 
+
+# Checks whether the player has three 
+# of their marks in a diagonal row 
+def diag_win(board, player): 
+    win = True
+    y = 0
+    for x in range(len(board)): 
+        if board[x, x] != player: 
+        win = False
+    if win: 
+        return win 
+    win = True
+    if win: 
+        for x in range(len(board)): 
+            y = len(board) - 1 - x 
+            if board[x, y] != player: 
+            win = False
+    return win 
+
+# Evaluates whether there is 
+# a winner or a tie 
+def evaluate(board): 
+    winner = 0
+    
+    for player in [1, 2]: 
+        if (row_win(board, player) or
+            col_win(board,player) or
+            diag_win(board,player)): 
+
+            winner = player 
+
+    if np.all(board != 0) and winner == 0: 
+    winner = -1
+    return winner 
+
+# Main function to start the game 
+def play_game(): 
+    board, winner, counter = create_board(), 0, 1
+    print(board) 
+    sleep(2) 
+    
+    while winner == 0: 
+        for player in [1, 2]: 
+            board = random_place(board, player) 
+            print("Board after " + str(counter) + " move") 
+            print(board) 
+            sleep(2) 
+            counter += 1
+            winner = evaluate(board) 
+            if winner != 0: 
+                break
+    return(winner) 
+
+# Driver Code 
+print("Winner is: " + str(play_game())) 
+
+
+
